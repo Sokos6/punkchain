@@ -229,6 +229,10 @@ impl pallet_timestamp::Trait for Runtime {
     type WeightInfo = ();
 }
 
+pub const MILLICENTS: Balance = 1_000_000_000;
+pub const CENTS: Balance = 1_000 * MILLICENTS;
+pub const DOLLARS: Balance = 100 * CENTS;
+
 parameter_types! {
     pub const TombstoneDeposit: Balance = 16 * MILLICENTS;
     pub const RentByteFee: Balance = 4 * MILLICENTS;
@@ -312,6 +316,7 @@ construct_runtime!(
         Sudo: pallet_sudo::{Module, Call, Config<T>, Storage, Event<T>},
         // Include the custom logic from the template pallet in the runtime.
         TemplateModule: pallet_template::{Module, Call, Storage, Event<T>},
+        Contracts: pallet_contracts::{Module, Call, Config, Storage, Event<T>},
     }
 );
 
