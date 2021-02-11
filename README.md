@@ -1,4 +1,4 @@
-# Substrate Node Template
+# Punkchain
 
 A fresh FRAME-based [Substrate](https://www.substrate.io/) node, ready for hacking :rocket:
 
