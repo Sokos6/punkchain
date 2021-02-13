@@ -12,13 +12,17 @@ mod incrementer {
     pub struct Incrementer {
         /// Stores a single `bool` value on the storage.
         value: bool,
+        value2: i32,
     }
 
     impl Incrementer {
         /// Constructor that initializes the `bool` value to the given `init_value`.
         #[ink(constructor)]
-        pub fn new(init_value: bool) -> Self {
-            Self { value: init_value }
+        pub fn new(init_value: bool, init_value2: i32) -> Self {
+            Self {
+                value: init_value,
+                value2: init_value2,
+            }
         }
 
         /// Constructor that initializes the `bool` value to `false`.
@@ -26,7 +30,7 @@ mod incrementer {
         /// Constructors can delegate to other constructors.
         #[ink(constructor)]
         pub fn default() -> Self {
-            Self::new(Default::default())
+            Self::new(Default::default(), Default::default())
         }
 
         /// A message that can be called on instantiated contracts.
@@ -62,7 +66,7 @@ mod incrementer {
         /// We test a simple use case of our contract.
         #[test]
         fn it_works() {
-            let mut incrementer = Incrementer::new(false);
+            let mut incrementer = Incrementer::new(false, 1);
             assert_eq!(incrementer.get(), false);
             incrementer.flip();
             assert_eq!(incrementer.get(), true);
