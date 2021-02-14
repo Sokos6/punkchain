@@ -36,7 +36,23 @@ mod erc20 {
         pub fn balance_of(&self, owner: AccountId) -> Balance {
             // ACTION: Return the balance of `owner`
             //   HINT: Use `balance_of_or_zero` to get the `owner` balance
-            self.balance_of_or_zero((&owner))
+            self.balance_of_or_zero(&owner)
+        }
+
+        fn transfer_from_to(&mut self, from: AccountId, to: AccountId, value: Balance) -> bool {
+            let from_balance = self.balance_of_or_zero(&from);
+            if from_balance < value {
+                return false;
+            }
+
+            // Update the sender's balance.
+            self.balances.insert(from, from_balance - value);
+
+            // Update the receiver's balance.
+            let to_balance = self.balance_of_or_zero(&to);
+            self.balances.insert(to, to_balance + value);
+
+            true
         }
 
         fn balance_of_or_zero(&self, owner: &AccountId) -> Balance {
