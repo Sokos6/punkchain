@@ -302,6 +302,10 @@ impl pallet_template::Trait for Runtime {
     type Event = Event;
 }
 
+impl punk_pallet::Trait for Runtime {
+    type Event = Event;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
     pub enum Runtime where
@@ -320,6 +324,7 @@ construct_runtime!(
         // Include the custom logic from the template pallet in the runtime.
         TemplateModule: pallet_template::{Module, Call, Storage, Event<T>},
         Contracts: pallet_contracts::{Module, Call, Config, Storage, Event<T>},
+        PunkPallet: punk_pallet::{Module, Call, Storage, Event<T>},
     }
 );
 
