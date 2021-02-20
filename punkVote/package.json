@@ -10,6 +10,8 @@
   "author": "Will Sokolowski <will.sokolowski@gmail.com> (https://github.com/Sokos6)",
   "license": "MIT",
   "dependencies": {
-    "ethers": "^5.0.31"
+    "ethers": "^5.0.31",
+    "ganache-cli": "^6.12.2",
+    "solc": "^0.5.3"
   }
 }
