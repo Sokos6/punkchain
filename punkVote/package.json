@@ -12,6 +12,7 @@
   "dependencies": {
     "ethers": "^5.0.31",
     "ganache-cli": "^6.12.2",
+    "http-server": "^0.12.3",
     "solc": "^0.5.3"
   }
 }
