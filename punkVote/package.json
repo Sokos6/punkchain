@@ -1,0 +1,18 @@
+{
+  "name": "punkVote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Will Sokolowski <will.sokolowski@gmail.com> (https://github.com/Sokos6)",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^5.0.31",
+    "ganache-cli": "^6.12.2",
+    "http-server": "^0.12.3",
+    "solc": "^0.5.3"
+  }
+}
